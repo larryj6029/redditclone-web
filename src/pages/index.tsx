@@ -21,12 +21,13 @@ const Index = () => {
   if (!fetching && !data) {
     return <div>Connection failed. Please try again</div>;
   }
+
   return (
     <Layout>
       {fetching && !data ? (
         <div>Loading</div>
       ) : (
-        <Stack>
+        <Stack className="dragable">
           {data?.posts.posts.map((p) =>
             !p ? null : (
               <Flex key={p.id} p={5} shadow="md" borderWidth="1px">
